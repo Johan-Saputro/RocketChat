@@ -2,6 +2,11 @@
 # Instalasi server rocketchat
 sudo snap install rocketchat-server
 
+# Konfigurasi open port http dan https
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
+
+
 
 # Konfigurasi SSL
 
