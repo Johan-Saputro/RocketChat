@@ -1,5 +1,9 @@
+
+# Instalasi server rocketchat
 sudo snap install rocketchat-server
 
+
+# Konfigurasi SSL
 
 sudo snap set rocketchat-server caddy-url=https://<your-domain-name>
 sudo snap set rocketchat-server caddy=enable
@@ -10,6 +14,7 @@ sudo systemctl restart snap.rocketchat-server.rocketchat-server.service
 sudo systemctl restart snap.rocketchat-server.rocketchat-caddy.service
 
 
+# Instalasi Nginx untuk Forward Public
 
 sudo apt-get install nginx -y
 
