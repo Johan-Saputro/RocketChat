@@ -18,7 +18,11 @@ sudo systemctl restart snap.rocketchat-server.rocketchat-caddy.service
 
 sudo apt-get install nginx -y
 
-######################################
+# Setup nginx
+sudo nano /etc/nginx/conf.d/rocketchat.conf
+
+
+###################################### copy file berikut
 upstream rocketchat {
 server 127.0.0.1:3000;
 }
