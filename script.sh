@@ -7,18 +7,6 @@ sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
 sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
 
 
-
-# Konfigurasi SSL
-
-sudo snap set rocketchat-server caddy-url=https://<your-domain-name>
-sudo snap set rocketchat-server caddy=enable
-sudo snap set rocketchat-server https=enable
-sudo snap run rocketchat-server.initcaddy
-
-sudo systemctl restart snap.rocketchat-server.rocketchat-server.service
-sudo systemctl restart snap.rocketchat-server.rocketchat-caddy.service
-
-
 # Instalasi Nginx untuk Forward Public
 
 sudo apt-get install nginx -y
