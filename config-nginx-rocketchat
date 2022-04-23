@@ -1,5 +1,24 @@
+
 upstream rocketchat {
 server 127.0.0.1:3000;
+}
+
+server {
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+        ssl_certificate /etc/nginx/certificate/nginx-certificate.crt;
+        ssl_certificate_key /etc/nginx/certificate/nginx.key;
+        #root /var/www/html;
+        #index index.html index.htm index.nginx-debian.html;
+        server_name 152.67.108.138;
+        location / {
+                proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect   off;
+        proxy_pass       http://rocketchat;
+        }
 }
 
 server {
